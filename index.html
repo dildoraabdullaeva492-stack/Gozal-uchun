@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ff8fb1">
+  <title>Gozal uchun 💌</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <!-- Orqa fon: nur va yulduzlar -->
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="stars" id="stars" aria-hidden="true"></div>
+
+  <!-- Scroll chizig'i -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- Yuraklar va gul barglari -->
+  <canvas id="hearts" aria-hidden="true"></canvas>
+
+  <!-- Uchar yulduz -->
+  <div id="shootingStar" class="shooting-star" aria-hidden="true"></div>
+
+  <!-- Musiqa (music.mp3 fayli bo'lsa, tugma o'zi chiqadi) -->
+  <audio id="bgm" src="music.mp3" loop preload="metadata"></audio>
+  <button id="musicBtn" class="music-btn hidden" type="button" aria-label="Musiqani yoqish yoki o‘chirish">♪</button>
+
+  <!-- 0-ekran: pushti kirish ekrani -->
+  <section id="splash" class="splash">
+    <div class="splash-hearts" id="splashHearts" aria-hidden="true"></div>
+    <div class="splash-content">
+      <p class="sp-top" aria-hidden="true">💌</p>
+      <h1 class="sp-title" aria-label="Gozal uchun maxsus">
+        <span class="sp-line" data-text="Gozal uchun" aria-hidden="true"></span>
+        <span class="sp-line sp-big" data-text="maxsus" aria-hidden="true"></span>
+      </h1>
+      <p class="sp-sub">yuragimdan yozilgan ❤</p>
+      <button id="splashBtn" class="sp-btn" type="button">Davom etish</button>
+    </div>
+  </section>
+
+  <!-- 1-ekran: konvert -->
+  <section id="intro" class="intro">
+    <p class="intro-top">Gozal, bu faqat sen uchun</p>
+
+    <button id="envelope" class="envelope" aria-label="Maktubni ochish">
+      <span class="env-back"></span>
+      <span class="env-letter"></span>
+      <span class="env-front"></span>
+      <span class="env-to">Gozalga</span>
+      <span class="env-flap"></span>
+      <span class="env-seal">❤</span>
+    </button>
+
+    <p class="hint">Maktubni ochish uchun bos</p>
+  </section>
+
+  <!-- 2-ekran: maktub -->
+  <main id="letter" class="letter hidden">
+
+    <!-- Sarlavha -->
+    <header class="hero">
+      <p class="hero-small">Sen uchun yozilgan maktub</p>
+      <h1 class="hero-title script">Gozal</h1>
+      <div class="hero-heart">❤</div>
+      <p class="scroll-hint">pastga suring ↓</p>
+    </header>
+
+    <!-- Maktub -->
+    <article class="paper">
+      <div class="paper-seal">❤</div>
+
+      <h2 class="script greeting reveal">Aziz Gozalim,</h2>
+
+      <p class="reveal">
+        Bu maktubni yozishga ancha o‘yladim. Hissiyotlarimni so‘zlarga solish
+        qiyin ekan, chunki sen haqingda gapirganda so‘zlar doim kamlik qiladi.
+      </p>
+
+      <p class="reveal">
+        Sen hayotimga kirib kelganingdan beri kunlarim boshqacha — yorqinroq va
+        mazmunliroq bo‘lib qoldi. Kulishing eng og‘ir kunimni ham yengillashtiradi,
+        ovozing esa ko‘nglimga xotirjamlik olib keladi.
+      </p>
+
+      <p class="reveal">
+        Ba’zan o‘ylab qolaman: taqdir seni mening yo‘limga nima uchun olib kelgan
+        ekan? Va har safar bir xil javobga kelaman — hayotim shu yo‘lda yanada
+        go‘zal bo‘lishi uchun.
+      </p>
+
+      <p class="reveal">
+        Men senda faqat go‘zallikni emas, mehribon qalbingni, samimiyligingni va
+        o‘zingga xos dunyongni ham yaxshi ko‘raman. Ismingga o‘xshab — sen
+        haqiqatan ham go‘zalsan: ham tashqaringda, ham ichingda.
+      </p>
+
+      <p class="reveal">
+        Sen bilan kichik narsalar ham katta quvonchga aylanadi: birga ichilgan
+        choy, tasodifiy kulgi, uzoq suhbatlar... Bularning hammasi mening eng
+        qadrli xotiralarimga aylanib bo‘ldi.
+      </p>
+
+      <p class="reveal">
+        Sen o‘zing bilmagan holda ham meni yaxshiroq inson bo‘lishga undaysan.
+        Yoningda men yanada mehribon, yanada sabrli bo‘lishni xohlayman.
+      </p>
+
+      <p class="reveal">
+        Va’da beraman: qiyin kunlarda yoningda bo‘laman, quvonchli damlarda
+        birga kulaman, orzularingga ishonaman va seni har doim qadrlayman.
+      </p>
+
+      <p class="reveal quote">
+        Bugun bir narsani bilib qo‘y: sen men uchun juda aziz va juda qadrlisan.
+      </p>
+
+      <p class="script sign reveal">Seni sevuvchi</p>
+
+      <p class="reveal ps">P.S. Bu sayt senga bo‘lgan sevgimning kichkina bir qismi, xolos ❤</p>
+    </article>
+
+    <!-- Sevgi o'lchagichi -->
+    <section class="meter reveal" id="meter">
+      <h2 class="section-title">Seni qanchalik yaxshi ko‘raman?</h2>
+      <div class="meter-bar"><div class="meter-fill" id="meterFill"></div></div>
+      <p class="meter-val"><span id="meterNum">0</span><span id="meterUnit">%</span></p>
+      <p class="meter-note" id="meterNote"></p>
+    </section>
+
+    <!-- Xislatlar -->
+    <section class="traits reveal">
+      <h2 class="section-title">Gozalning xislatlari</h2>
+      <div class="trait-list">
+        <div class="trait">
+          <span>Mehribonlik</span><b>100%</b>
+          <div class="bar" style="--v:100%"><i></i></div>
+        </div>
+        <div class="trait">
+          <span>Go‘zallik</span><b>100%</b>
+          <div class="bar" style="--v:100%"><i></i></div>
+        </div>
+        <div class="trait">
+          <span>Kulgi</span><b>100%</b>
+          <div class="bar" style="--v:100%"><i></i></div>
+        </div>
+        <div class="trait">
+          <span>Aql-farosat</span><b>99%</b>
+          <div class="bar" style="--v:99%"><i></i></div>
+        </div>
+        <div class="trait">
+          <span>Sabr-toqat</span><b>98%</b>
+          <div class="bar" style="--v:98%"><i></i></div>
+        </div>
+      </div>
+      <p class="traits-note">Qolgan 1–2% — hali kashf etilmagan sirlar 😄</p>
+    </section>
+
+    <!-- Sabablar kartochkalari -->
+    <section class="reasons reveal">
+      <h2 class="section-title">Seni sevishimning sabablari</h2>
+      <p class="sub">Kartochkalarni bosib ko‘r 💗</p>
+      <div class="cards">
+        <button class="card" type="button" aria-label="Sabab 1">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>❤</span><small>1</small></span>
+            <span class="card-face card-back">Kulishing ko‘nglimni olib qo‘yadi 😊</span>
+          </span>
+        </button>
+        <button class="card" type="button" aria-label="Sabab 2">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>❤</span><small>2</small></span>
+            <span class="card-face card-back">Sen bilan o‘tgan har daqiqa qimmatli ✨</span>
+          </span>
+        </button>
+        <button class="card" type="button" aria-label="Sabab 3">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>❤</span><small>3</small></span>
+            <span class="card-face card-back">Mehribon qalbing meni hayratga soladi 💗</span>
+          </span>
+        </button>
+        <button class="card" type="button" aria-label="Sabab 4">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>❤</span><small>4</small></span>
+            <span class="card-face card-back">Yoningda o‘zimni o‘zim bo‘lib his qilaman 🥰</span>
+          </span>
+        </button>
+        <button class="card" type="button" aria-label="Sabab 5">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>❤</span><small>5</small></span>
+            <span class="card-face card-back">Ko‘zlaring — men ko‘rgan eng chiroyli manzara 🌙</span>
+          </span>
+        </button>
+        <button class="card" type="button" aria-label="Sabab 6">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>❤</span><small>6</small></span>
+            <span class="card-face card-back">Sen borsan — dunyo go‘zalroq 🌹</span>
+          </span>
+        </button>
+        <button class="card" type="button" aria-label="Sabab 7">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>❤</span><small>7</small></span>
+            <span class="card-face card-back">Ovozing men eshitgan eng yoqimli musiqa 🎶</span>
+          </span>
+        </button>
+        <button class="card" type="button" aria-label="Sabab 8">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>❤</span><small>8</small></span>
+            <span class="card-face card-back">Sen — sen bo‘lganing uchun ❤</span>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Xotiralar (rasmlar).
+         Suratlarni "photos" papkasiga 1.jpg, 2.jpg, 3.jpg, 4.jpg nomi bilan qo'y.
+         Rasm topilmasa, bu bo'lim o'zi yashirinadi. Yozuvlarni o'zgartirishing mumkin. -->
+    <section class="gallery reveal" id="gallery">
+      <h2 class="section-title">Xotiralarimiz</h2>
+      <div class="polaroids">
+        <figure class="polaroid">
+          <img src="photos/1.jpg" alt="Xotira 1">
+          <figcaption>Birinchi uchrashuv</figcaption>
+        </figure>
+        <figure class="polaroid">
+          <img src="photos/2.jpg" alt="Xotira 2">
+          <figcaption>Eng yaxshi kunimiz</figcaption>
+        </figure>
+        <figure class="polaroid">
+          <img src="photos/3.jpg" alt="Xotira 3">
+          <figcaption>Sening kulging</figcaption>
+        </figure>
+        <figure class="polaroid">
+          <img src="photos/4.jpg" alt="Xotira 4">
+          <figcaption>Biz ❤</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Bizning hikoyamiz -->
+    <section class="timeline reveal">
+      <h2 class="section-title">Bizning hikoyamiz</h2>
+      <ol>
+        <li>
+          <strong>Birinchi tanishuv</strong>
+          <p>Seni birinchi marta ko‘rgan kunim yuragim tez-tez ura boshlagan edi.</p>
+        </li>
+        <li>
+          <strong>Birinchi suhbat</strong>
+          <p>Soatlab gaplashdik, vaqt qanday o‘tganini sezmay qoldim.</p>
+        </li>
+        <li>
+          <strong>Sen “ha” degan kun</strong>
+          <p>Hayotimdagi eng baxtli kunlardan biri shu bo‘ldi.</p>
+        </li>
+        <li>
+          <strong>Bugun</strong>
+          <p>Sen bilan har kun yangi quvonch, yangi umid.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- She'r -->
+    <section class="poem reveal">
+      <h2 class="section-title">Sen uchun she’r</h2>
+      <div class="poem-card">
+        <p class="stanza reveal">
+          Tun yulduzlarga to‘lsa ham osmon,<br>
+          Men faqat seni izlayman, Gozal.<br>
+          Kulgan chog‘ing bahor kelgandek bo‘lar,<br>
+          Ko‘nglim bog‘ida ochilar hayol.
+        </p>
+        <p class="stanza reveal">
+          Ko‘zlaringda sokin dengiz bor,<br>
+          Unda adashsam — nolimas aslo.<br>
+          Yoningda har lahza bir ajib bayram,<br>
+          Sensiz esa dunyo — jimjit sahro.
+        </p>
+        <p class="stanza reveal">
+          Agar so‘rashsa: baxt nima o‘zi?<br>
+          Ko‘rsataman seni, shu bas javobim.<br>
+          Sening kulging, sening qo‘lingni ushlash —<br>
+          Hayotdagi eng katta havasim.
+        </p>
+        <p class="stanza reveal">
+          Yillar o‘tar, kunlar almashar,<br>
+          Men shu yerda, yoningda bo‘laman.<br>
+          Har tongda senga “seni sevaman” deb,<br>
+          Yuragimning so‘zin takrorlayman.
+        </p>
+        <p class="poem-sign script reveal">Sevgi bilan ❤</p>
+      </div>
+    </section>
+
+    <!-- Va'dalar -->
+    <section class="promises reveal">
+      <h2 class="section-title">Senga 10 ta va’dam</h2>
+      <ol class="promise-list">
+        <li>Seni har kuni kuldirishga harakat qilaman.</li>
+        <li>Qiyin paytlarda doim yoningda bo‘laman.</li>
+        <li>Gaplaringni diqqat bilan tinglayman.</li>
+        <li>Orzularingni qo‘llab-quvvatlayman.</li>
+        <li>Seni hech qachon yolg‘iz qoldirmayman.</li>
+        <li>Kichik narsalarni ham qadrlayman.</li>
+        <li>Seni har doim hurmat qilaman.</li>
+        <li>Birga yangi-yangi xotiralar yaratamiz.</li>
+        <li>Yomg‘irda ham, quyoshda ham qo‘lingni qo‘yib yubormayman.</li>
+        <li>Seni har kuni avvalgidan ko‘proq sevaman.</li>
+      </ol>
+    </section>
+
+    <!-- Orzularimiz -->
+    <section class="wishes reveal">
+      <h2 class="section-title">Birga qiladigan orzularimiz</h2>
+      <p class="sub">Bajarilganini belgilab bor ✔</p>
+      <ul class="wish-list">
+        <li><button class="wish" type="button"><span class="check"></span><span class="wish-text">Birga sayohatga chiqish ✈️</span></button></li>
+        <li><button class="wish" type="button"><span class="check"></span><span class="wish-text">Quyosh botishini birga tomosha qilish 🌅</span></button></li>
+        <li><button class="wish" type="button"><span class="check"></span><span class="wish-text">Yomg‘ir ostida sayr qilish ☔</span></button></li>
+        <li><button class="wish" type="button"><span class="check"></span><span class="wish-text">Birga mazali ovqat tayyorlash 🍝</span></button></li>
+        <li><button class="wish" type="button"><span class="check"></span><span class="wish-text">Yulduzlarga qarab orzu qilish 🌠</span></button></li>
+      </ul>
+      <p class="wish-msg" id="wishMsg" aria-live="polite"></p>
+    </section>
+
+    <!-- Sovg'a qutisi -->
+    <section class="gift reveal">
+      <h2 class="section-title">Sen uchun kichik sovg‘a</h2>
+      <p class="sub">Sovg‘ani bosib och 🎁</p>
+      <button id="giftBox" class="gift-box" type="button" aria-label="Sovg‘ani ochish">
+        <span class="gift-lid"></span>
+        <span class="gift-body"></span>
+        <span class="gift-ribbon-v"></span>
+        <span class="gift-heart">❤</span>
+      </button>
+      <p id="giftMsg" class="love-msg" aria-live="polite"></p>
+    </section>
+
+    <!-- Sevgi kuponlari -->
+    <section class="coupons reveal">
+      <h2 class="section-title">Sevgi kuponlari</h2>
+      <p class="sub">Har bir kuponni och — hammasi sen uchun 🎟️</p>
+      <div class="cards tickets">
+        <button class="card ticket" type="button" aria-label="Kupon 1">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>🎟️</span><small>Kupon №1</small></span>
+            <span class="card-face card-back">Bitta uzun va issiq quchoq 🤗</span>
+          </span>
+        </button>
+        <button class="card ticket" type="button" aria-label="Kupon 2">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>🎟️</span><small>Kupon №2</small></span>
+            <span class="card-back card-face">Sen tanlagan joyda birga kechki ovqat 🍝</span>
+          </span>
+        </button>
+        <button class="card ticket" type="button" aria-label="Kupon 3">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>🎟️</span><small>Kupon №3</small></span>
+            <span class="card-face card-back">Sen tanlagan film, men esa jim tomosha qilaman 🎬</span>
+          </span>
+        </button>
+        <button class="card ticket" type="button" aria-label="Kupon 4">
+          <span class="card-inner">
+            <span class="card-face card-front"><span>🎟️</span><small>Kupon №4</small></span>
+            <span class="card-face card-back">Bir kun davomida sening hohishing — mening buyrug‘im 👑</span>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Birga bo'lgan vaqt -->
+    <section class="counter reveal">
+      <h2 class="section-title">Birga bo‘lgan vaqtimiz</h2>
+      <div class="counter-grid">
+        <div><span id="cDays">0</span><small>kun</small></div>
+        <div><span id="cHours">0</span><small>soat</small></div>
+        <div><span id="cMins">0</span><small>daqiqa</small></div>
+        <div><span id="cSecs">0</span><small>soniya</small></div>
+      </div>
+      <p class="counter-note">va bu hali boshlanishi xolos ❤</p>
+    </section>
+
+    <!-- Yurak zarbasi -->
+    <section class="pulse reveal">
+      <h2 class="section-title">Yuragim sen uchun uradi</h2>
+      <p class="sub">Yurakni bos 💓</p>
+      <button id="bigHeart" class="big-heart-btn" type="button" aria-label="Yurakni bosish">❤</button>
+      <p class="beats"><span id="beatCount">0</span> marta urdi</p>
+      <p id="beatMsg" class="beat-msg" aria-live="polite"></p>
+    </section>
+
+    <!-- Asosiy savol: qochuvchi "Yo'q" tugmasi -->
+    <section class="question reveal" id="question">
+      <h2 class="section-title">Gozal, senga bir narsa aytmoqchiman...</h2>
+      <p class="q-text">Men seni yaxshi ko‘raman ❤</p>
+      <div class="q-buttons" id="qButtons">
+        <button id="yesBtn" class="btn yes" type="button">Men ham ❤</button>
+        <button id="noBtn" class="btn no" type="button">Yo‘q</button>
+      </div>
+      <p id="qHint" class="q-hint" aria-live="polite"></p>
+    </section>
+
+    <!-- Yakun -->
+    <section class="final reveal">
+      <div class="final-btns">
+        <button id="loveBtn" class="btn" type="button">Bir narsa ayt 💌</button>
+        <button id="starBtn" class="btn" type="button">Yulduz uchir 🌠</button>
+      </div>
+      <p id="loveMsg" class="love-msg" aria-live="polite"></p>
+      <button id="replay" class="link-btn" type="button">Maktubni qaytadan o‘qish</button>
+    </section>
+
+    <footer class="footer script">Gozal, sen mening eng go‘zal hikoyamsan ❤</footer>
+
+  </main>
+
+  <!-- "Men ham" bosilganda chiqadigan oyna -->
+  <div id="yesOverlay" class="yes-overlay hidden" role="dialog" aria-modal="true">
+    <div class="yes-box">
+      <div class="big-heart">❤</div>
+      <h2>Bilardim! ❤</h2>
+      <p>Men ham seni dunyodagi hamma narsadan ko‘proq yaxshi ko‘raman, Gozal.</p>
+      <button id="closeYes" class="btn" type="button">Yopish</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
